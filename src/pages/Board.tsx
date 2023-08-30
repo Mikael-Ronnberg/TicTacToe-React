@@ -1,3 +1,5 @@
+import "/Users/mikaelronnberg/Documents/GitHub Projects/TicTacToe-React/TicTacToe-React/src/pages/Board.css";
+
 import { useContext, useState } from "react";
 import { PlayerContext } from "../contexts/PlayerContext";
 import { PlayerDispatchContext } from "../contexts/PlayerDispatchContext";
@@ -5,14 +7,17 @@ import { ActionType } from "../reducers/GameReducer";
 
 export const Board = () => {
   const allPlayers = useContext(PlayerContext);
+
   const dispatch = useContext(PlayerDispatchContext);
-  const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
+  const [currentPlayerIndex, setCurrentPlayerIndex] = useState<number>(0);
   const [board, setBoard] = useState([
     ["", "", ""],
     ["", "", ""],
     ["", "", ""],
   ]);
   const [winner, setWinner] = useState<string>("");
+
+  console.log(allPlayers);
 
   const calculateWinner = (squares: string[]) => {
     const lines = [
@@ -90,7 +95,21 @@ export const Board = () => {
       {allPlayers.length > 1 && (
         <div>
           <h2>{allPlayers[currentPlayerIndex].name}'s turn</h2>
-          <div>{}</div>
+          <div className="board">
+            {board.map((row, x) => (
+              <div key={x}>
+                {row.map((cell, y) => (
+                  <div
+                    key={y}
+                    className="square"
+                    onClick={() => makeMove(x, y)}
+                  >
+                    {cell}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
           <div>
             {winner && <h2>{winner} wins!</h2>}
             {!winner && isBoardFull() && <h2>It's a tie!</h2>}

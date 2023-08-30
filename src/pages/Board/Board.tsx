@@ -1,9 +1,10 @@
 import "/Users/mikaelronnberg/Documents/GitHub Projects/TicTacToe-React/TicTacToe-React/src/pages/Board.css";
 
 import { useContext, useState } from "react";
-import { PlayerContext } from "../contexts/PlayerContext";
-import { PlayerDispatchContext } from "../contexts/PlayerDispatchContext";
-import { ActionType } from "../reducers/GameReducer";
+import { PlayerContext } from "../../contexts/PlayerContext";
+import { PlayerDispatchContext } from "../../contexts/PlayerDispatchContext";
+import { ActionType } from "../../reducers/GameReducer";
+import { Link } from "react-router-dom";
 
 export const Board = () => {
   const allPlayers = useContext(PlayerContext);
@@ -86,10 +87,6 @@ export const Board = () => {
     setCurrentPlayerIndex(0);
   };
 
-  const startOver = () => {};
-
-  const showHighScore = () => {};
-
   return (
     <div>
       {allPlayers.length > 1 && (
@@ -114,8 +111,12 @@ export const Board = () => {
             {winner && <h2>{winner} wins!</h2>}
             {!winner && isBoardFull() && <h2>It's a tie!</h2>}
             <button onClick={resetGame}>Reset Game</button>
-            <button onClick={startOver}>Start Over</button>
-            <button onClick={showHighScore}>Show High Score</button>
+            <Link to="/players">
+              <button>Start Over</button>
+            </Link>
+            <Link to="/result">
+              <button>Show High Score</button>
+            </Link>
           </div>
         </div>
       )}

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { PlayerDispatchContext } from "../contexts/PlayerDispatchContext";
-import { ActionType } from "../reducers/GameReducer";
+import { PlayerDispatchContext } from "../../contexts/PlayerDispatchContext";
+import { ActionType } from "../../reducers/GameReducer";
 
 export const Players = () => {
   const dispatch = useContext(PlayerDispatchContext);

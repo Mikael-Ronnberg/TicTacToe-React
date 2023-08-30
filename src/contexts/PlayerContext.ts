@@ -1,4 +1,4 @@
 import { createContext } from "react";
-import { IPlayerContext } from "../models/IPlayerContext";
+import { IPlayer } from "../models/IPlayer";
 
-export const GameContext = createContext<IPlayerContext[]>([]);
+export const PlayerContext = createContext<IPlayer[]>([]);

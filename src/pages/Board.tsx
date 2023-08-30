@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { PlayerContext } from "../contexts/PlayerContext";
+import { PlayerDispatchContext } from "../contexts/PlayerDispatchContext";
+import { ActionType } from "../reducers/GameReducer";
 
 export const Board = () => {
-  const [players, setPlayers] = useState([]);
+  const allPlayers = useContext(PlayerContext);
+  const dispatch = useContext(PlayerDispatchContext);
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
   const [board, setBoard] = useState([
     ["", "", ""],
     ["", "", ""],
     ["", "", ""],
   ]);
-  const [winner, setWinner] = useState(null);
+  const [winner, setWinner] = useState<string>("");
 
-  const calculateWinner = (squares: string) => {
+  const calculateWinner = (squares: string[]) => {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -21,10 +25,14 @@ export const Board = () => {
       [0, 4, 8],
       [2, 4, 6],
     ];
-  
+
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      if (
+        squares[a] &&
+        squares[a] === squares[b] &&
+        squares[a] === squares[c]
+      ) {
         return squares[a];
       }
     }
@@ -35,31 +43,36 @@ export const Board = () => {
     return board.flat().every((cell) => cell !== "");
   };
 
-  const makeMove = (x: string, y: string) => {
+  const makeMove = (x: number, y: number) => {
     if (winner || board[x][y] !== "") return;
-  
-    const current = players[currentPlayerIndex];
-  
+
+    const current = allPlayers[currentPlayerIndex];
+
     const updatedBoard = [...board];
     updatedBoard[x][y] = current.character;
     setBoard(updatedBoard);
-  
-    const win = calculateWinner(updatedBoard.flat());
+
+    const win = calculateWinner(board.flat());
     if (win) {
-      const updatedPlayers = [...players];
+      const updatedPlayers = [...allPlayers];
       const currentPlayer = updatedPlayers[currentPlayerIndex];
       currentPlayer.score++;
-      setPlayers(updatedPlayers);
+      dispatch({
+        type: ActionType.UPDATE_PLAYERS,
+        payload: JSON.stringify(updatedPlayers),
+      });
+
+      // setPlayers(updatedPlayers);
       setWinner(currentPlayer.name);
     } else if (isBoardFull()) {
       setWinner("tie");
     } else {
-      setCurrentPlayerIndex((prevIndex) => (prevIndex + 1) % players.length);
+      setCurrentPlayerIndex((prevIndex) => (prevIndex + 1) % allPlayers.length);
     }
   };
 
   const resetGame = () => {
-    setWinner(null);
+    setWinner("");
     setBoard([
       ["", "", ""],
       ["", "", ""],
@@ -68,20 +81,16 @@ export const Board = () => {
     setCurrentPlayerIndex(0);
   };
 
-  const startOver = () => {
-  };
+  const startOver = () => {};
 
-  const showHighScore = () => {
-  };
+  const showHighScore = () => {};
 
   return (
-    <div >
-      {players.length > 1 && (
+    <div>
+      {allPlayers.length > 1 && (
         <div>
-          <h2>{players[currentPlayerIndex].name}'s turn</h2>
-          <div>
-            {}
-          </div>
+          <h2>{allPlayers[currentPlayerIndex].name}'s turn</h2>
+          <div>{}</div>
           <div>
             {winner && <h2>{winner} wins!</h2>}
             {!winner && isBoardFull() && <h2>It's a tie!</h2>}
@@ -93,5 +102,4 @@ export const Board = () => {
       )}
     </div>
   );
-};
 };

@@ -1,4 +1,4 @@
-import "/Users/mikaelronnberg/Documents/GitHub Projects/TicTacToe-React/TicTacToe-React/src/pages/Board.css";
+import "../Board/Board.css";
 
 import { useContext, useState } from "react";
 import { PlayerContext } from "../../contexts/PlayerContext";

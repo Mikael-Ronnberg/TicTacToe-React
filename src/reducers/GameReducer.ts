@@ -9,6 +9,8 @@ export enum ActionType {
   ADD_PLAYER_ONE,
   ADD_PLAYER_TWO,
   UPDATE_PLAYERS,
+  RESTART_GAME,
+  START_OVER,
 }
 
 export const GameReducer = (players: IPlayer[], action: IAction): IPlayer[] => {
@@ -34,14 +36,16 @@ export const GameReducer = (players: IPlayer[], action: IAction): IPlayer[] => {
         return player;
       });
     }
+    case ActionType.RESTART_GAME: {
+      return [
+        ...players,
+        { name: action.payload, score: 0, character: "X" },
+        { name: action.payload, score: 0, character: "O" },
+      ];
+    }
     default:
       break;
   }
 
   return players;
 };
-
-// }
-// case ActionType.GET_RESULTS: {
-//   return action.payload;
-// }

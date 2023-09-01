@@ -87,6 +87,13 @@ export const Board = () => {
     setCurrentPlayerIndex(0);
   };
 
+  const startOver = () => {
+    dispatch({
+      type: ActionType.START_OVER,
+      payload: "",
+    });
+  };
+
   return (
     <div>
       {allPlayers.length > 1 && (
@@ -112,7 +119,7 @@ export const Board = () => {
             {!winner && isBoardFull() && <h2>It's a tie!</h2>}
             <button onClick={resetGame}>Reset Game</button>
             <Link to="/players">
-              <button>Start Over</button>
+              <button onClick={startOver}>Start Over</button>
             </Link>
             <Link to="/result">
               <button>Show High Score</button>

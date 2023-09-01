@@ -10,6 +10,7 @@ export const Result = () => {
     <>
       {allPlayers.map((player) => {
         <h3>{player.name}</h3>;
+        <p>{player.score}</p>;
       })}
     </>
   );

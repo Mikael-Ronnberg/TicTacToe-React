@@ -55,6 +55,9 @@ export const Board = () => {
     const current = allPlayers[currentPlayerIndex];
 
     const updatedBoard = [...board];
+
+    
+
     updatedBoard[x][y] = current.character;
     setBoard(updatedBoard);
 

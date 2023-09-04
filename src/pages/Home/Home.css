@@ -1,0 +1,15 @@
+body {
+    background: linear-gradient( to bottom, rgb(40, 115, 124), rgb(187, 249, 239));
+}
+
+.container {
+    height: 20vh;
+    width: 30vw;
+    background-color: white;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}

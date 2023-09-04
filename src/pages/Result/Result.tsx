@@ -1,3 +1,4 @@
+import "../Result/Result.css";
 import { useContext } from "react";
 import { PlayerContext } from "../../contexts/PlayerContext";
 

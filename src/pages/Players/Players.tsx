@@ -1,3 +1,4 @@
+import "../Players/Players.css";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { PlayerDispatchContext } from "../../contexts/PlayerDispatchContext";
@@ -24,7 +25,7 @@ export const Players = () => {
   };
 
   return (
-    <div>
+    <div className="name_container">
       {show ? (
         <>
           <h3>Enter name for player 1</h3>

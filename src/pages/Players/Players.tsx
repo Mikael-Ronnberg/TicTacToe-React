@@ -25,7 +25,7 @@ export const Players = () => {
   };
 
   return (
-    <div className="name_container">
+    <div className="small_container">
       {show ? (
         <>
           <h3>Enter name for player 1</h3>

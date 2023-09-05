@@ -3,11 +3,9 @@
   line-height: 1.5;
   font-weight: 400; 
   
-  
   /* background-image: linear-gradient(bottom, rgb(115, 115, 219), rgb(94, 126, 252)); */
 
   color: rgba(35, 6, 6, 0.87);
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

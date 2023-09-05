@@ -1,15 +1,29 @@
 body {
-    background: linear-gradient( to bottom, rgb(40, 115, 124), rgb(187, 249, 239));
+    /* background: linear-gradient( to bottom, rgb(40, 115, 124), rgb(187, 249, 239)); */
 }
 
-.container {
+.big_container {
+
+    height: 23vh;
+    width: 31vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ebeef1;
+    border-radius: 20px;
+}
+
+.small_container {
     height: 20vh;
     width: 30vw;
-    background-color: white;
+    background-color: #ebeef1;
     margin: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
+    color: #00a037;
+    box-shadow: -10px -10px 10px -1px rgba(255, 255, 255, 0.70), 
+                10px 10px 10px -1px rgba(10, 99, 169, 0.16); 
 }

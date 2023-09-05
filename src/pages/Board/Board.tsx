@@ -56,8 +56,6 @@ export const Board = () => {
 
     const updatedBoard = [...board];
 
-    
-
     updatedBoard[x][y] = current.character;
     setBoard(updatedBoard);
 
@@ -104,14 +102,15 @@ export const Board = () => {
           <h2>{allPlayers[currentPlayerIndex].name}'s turn</h2>
           <div className="board">
             {board.map((row, x) => (
-              <div key={x}>
+              <div className=" play_area" key={x}>
                 {row.map((cell, y) => (
                   <div
                     key={y}
                     className="square"
                     onClick={() => makeMove(x, y)}
                   >
-                    {cell}
+                    {" "}
+                    <div className="circle">{cell}</div>
                   </div>
                 ))}
               </div>

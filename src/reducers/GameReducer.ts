@@ -16,7 +16,7 @@ export enum ActionType {
 export const GameReducer = (players: IPlayer[], action: IAction): IPlayer[] => {
   switch (action.type) {
     case ActionType.ADD_PLAYER_ONE: {
-      return [...players, { name: action.payload, score: 0, character: "X" }];
+      return [{ name: action.payload, score: 0, character: "X" }];
     }
     case ActionType.ADD_PLAYER_TWO: {
       return [...players, { name: action.payload, score: 0, character: "O" }];
@@ -38,7 +38,6 @@ export const GameReducer = (players: IPlayer[], action: IAction): IPlayer[] => {
     }
     case ActionType.RESTART_GAME: {
       return [
-        ...players,
         { name: action.payload, score: 0, character: "X" },
         { name: action.payload, score: 0, character: "O" },
       ];

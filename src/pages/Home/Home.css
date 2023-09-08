@@ -1,7 +1,7 @@
 
-/* body {
-    background: linear-gradient( to bottom, rgb(40, 115, 124), rgb(187, 249, 239));
-} */
+body {
+    font-family: 'CoreCircus', sans-serif;
+}
 
 /* .big_container {
 
@@ -17,8 +17,6 @@
 
 
 h2 {
-
-    font-family: 'CoreCircus', sans-serif;
     color: #f98ca4;
     font-size: 3.5rem;
     padding: 1rem;
@@ -57,17 +55,44 @@ h2 {
         box-shadow: 10px 10px 10px -1px rgba(113, 175, 223, 0.16), -10px -10px 10px -1px rgba(233, 233, 233, 0.7);
 }
 
-/* .text_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25vw;
-    height: 15vh;
-    border-top: 1px solid #e7e7e7;
-    border-left: 1px solid #e7e7e7;
-    border-radius: 10px;
-    box-shadow: 10px 10px 10px -1px rgba(113, 175, 223, 0.16), -10px -10px 10px -1px rgba(233, 233, 233, 0.7);
-} */
+h3 {
+    color: #f98ca4;
+    font-size: 2rem;
+    padding: 1rem;
+	letter-spacing: -0.225rem;
+    z-index: 1;
+	text-shadow: 
+		-1px -1px 0 #6e1f58, 
+		1px -1px 0 #6e1f58, 
+		-1px 1px 0 #6e1f58, 
+		1px 1px 0 #6e1f58,
+		1px 0px 0px #24c447, 
+		0px 1px 0px #24c447, 
+		2px 1px 0px #24c447, 
+		1px 2px 0px #24c447, 
+		3px 2px 0px #24c447, 
+		2px 3px 0px #24c447, 
+		4px 3px 0px #24c447, 
+		3px 4px 0px #24c447, 
+		5px 4px 0px #24c447,
+		3px 5px 0px #6e1f58, 
+		6px 5px 0px #6e1f58,
+		-1px 2px 0 rgb(151, 151, 151), 
+		0 3px 0 #6e1f58, 
+		1px 4px 0 #6e1f58, 
+		2px 5px 0px #6e1f58,
+		2px -1px 0 #6e1f58, 
+		3px 0 0 #6e1f58, 
+		4px 1px 0 #6e1f58, 
+		5px 2px 0px #6e1f58, 
+		6px 3px 0 #6e1f58, 
+		7px 4px 0 #6e1f58,
+		10px 8px 10px #8b8b8b;
+        border-top: 1px solid #e7e7e7;
+        border-left: 1px solid #e7e7e7;
+        border-radius: 10px;
+        box-shadow: 10px 10px 10px -1px rgba(113, 175, 223, 0.16), -10px -10px 10px -1px rgba(233, 233, 233, 0.7);
+}
 
 .small_container {
     height: 30vh;

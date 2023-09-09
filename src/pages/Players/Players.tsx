@@ -25,7 +25,7 @@ export const Players = () => {
   };
 
   return (
-    <div className="small_container">
+    <div className="main_container">
       {show ? (
         <>
           <h3>Enter name for player 1</h3>
@@ -36,7 +36,9 @@ export const Players = () => {
               setPlayerOneInput(e.target.value);
             }}
           />
-          <button onClick={handleSubmit}>Next</button>
+          <div className="btn_container">
+            <button onClick={handleSubmit}>Next</button>
+          </div>
         </>
       ) : (
         <>
@@ -52,9 +54,11 @@ export const Players = () => {
       )}
 
       {show ? null : (
-        <Link to="/board">
-          <button onClick={handleSubmit}>Start game!</button>
-        </Link>
+        <div className="btn_container">
+          <Link to="/board">
+            <button onClick={handleSubmit}>Start game!</button>
+          </Link>
+        </div>
       )}
     </div>
   );

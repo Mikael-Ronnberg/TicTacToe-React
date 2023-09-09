@@ -96,10 +96,10 @@ export const Board = () => {
   };
 
   return (
-    <div>
+    <div className="board_container">
+      <h2>{allPlayers[currentPlayerIndex].name}'s turn</h2>
       {allPlayers.length > 1 && (
         <div>
-          <h2>{allPlayers[currentPlayerIndex].name}'s turn</h2>
           <div className="board">
             {board.map((row, x) => (
               <div className=" play_area" key={x}>
@@ -116,19 +116,25 @@ export const Board = () => {
               </div>
             ))}
           </div>
-          <div>
-            {winner && <h2>{winner} wins!</h2>}
-            {!winner && isBoardFull() && <h2>It's a tie!</h2>}
-            <button onClick={resetGame}>Reset Game</button>
-            <Link to="/players">
-              <button onClick={startOver}>Start Over</button>
-            </Link>
-            <Link to="/result">
-              <button>Show High Score</button>
-            </Link>
-          </div>
         </div>
       )}
+      {winner && <h2>{winner} wins!</h2>}
+      {!winner && isBoardFull() && <h2>It's a tie!</h2>}
+      <div className="all_btns">
+        <div className="btn_container">
+          <button onClick={resetGame}>Reset Game</button>
+        </div>
+        <div className="btn_container">
+          <Link to="/players">
+            <button onClick={startOver}>Start Over</button>
+          </Link>
+        </div>
+        <div className="btn_container">
+          <Link to="/result">
+            <button>Show High Score</button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

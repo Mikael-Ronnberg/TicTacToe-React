@@ -147,13 +147,17 @@ button:active {
     }
 
     h2 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         letter-spacing: 0.25rem;
     }
 
+    input {
+        height: .5rem;
+    }
+
     .main_container{
-        width: 80vw;
-        height: 50vh;
+        width: 70vw;
+        height: 60vh;
     }
 
     .btn_container {

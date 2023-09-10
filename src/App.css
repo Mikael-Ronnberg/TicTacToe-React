@@ -1,7 +1,6 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-image: linear-gradient(bottom, rgb(115, 115, 219) rgb(94, 126, 252)); 
+  color: black;
 }

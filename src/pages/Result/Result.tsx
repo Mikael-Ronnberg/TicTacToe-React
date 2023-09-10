@@ -1,6 +1,7 @@
 import "../Result/Result.css";
 import { useContext } from "react";
 import { PlayerContext } from "../../contexts/PlayerContext";
+import { Link } from "react-router-dom";
 
 export const Result = () => {
   const allPlayers = useContext(PlayerContext);
@@ -14,18 +15,26 @@ export const Result = () => {
   const highestPlayer = getHighestPlayer();
 
   return (
-    <div>
-      <h3>Highest Score:</h3>
-      <p>{highestPlayer.name}</p>
-      <p>{highestPlayer.score}</p>
-
-      <h3>Player Scores:</h3>
-      {allPlayers.map((player) => (
-        <div key={player.name}>
-          <p>{player.name}</p>
-          <p>{player.score}</p>
-        </div>
-      ))}
+    <div className="main_container">
+      <div className="result_container">
+        <h3>Highest Score:</h3>
+        <p>{highestPlayer.name}</p>
+        <p>{highestPlayer.score}</p>
+      </div>
+      <div className="result_container">
+        <h3>Player Scores:</h3>
+        {allPlayers.map((player) => (
+          <div key={player.name}>
+            <p>{player.name}</p>
+            <p>{player.score}</p>
+          </div>
+        ))}
+      </div>
+      <div className="btn_container">
+        <Link to="/board">
+          <button>Back</button>
+        </Link>
+      </div>
     </div>
   );
 };

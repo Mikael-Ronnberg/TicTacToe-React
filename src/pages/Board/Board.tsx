@@ -68,8 +68,6 @@ export const Board = () => {
         type: ActionType.UPDATE_PLAYERS,
         payload: JSON.stringify(updatedPlayers),
       });
-
-      // setPlayers(updatedPlayers);
       setWinner(currentPlayer.name);
     } else if (isBoardFull()) {
       setWinner("tie");
@@ -97,7 +95,15 @@ export const Board = () => {
 
   return (
     <div className="board_container">
-      <h2>{allPlayers[currentPlayerIndex].name}'s turn</h2>
+      {winner ? (
+        winner === "tie" ? (
+          <h2>It's a tie!</h2>
+        ) : (
+          <h2>{winner} wins!</h2>
+        )
+      ) : (
+        <h2>{allPlayers[currentPlayerIndex].name}'s turn</h2>
+      )}
       {allPlayers.length > 1 && (
         <div>
           <div className="board">
@@ -118,8 +124,7 @@ export const Board = () => {
           </div>
         </div>
       )}
-      {winner && <h2>{winner} wins!</h2>}
-      {!winner && isBoardFull() && <h2>It's a tie!</h2>}
+      {!winner && !isBoardFull()}
       <div className="all_btns">
         <div className="btn_container">
           <button onClick={resetGame}>Reset Game</button>
@@ -131,7 +136,7 @@ export const Board = () => {
         </div>
         <div className="btn_container">
           <Link to="/result">
-            <button>Show High Score</button>
+            <button>High Score</button>
           </Link>
         </div>
       </div>

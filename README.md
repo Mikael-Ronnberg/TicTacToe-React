@@ -1,6 +1,6 @@
 # Tic Tac Toe Game
 
-A simple implementation of the classic Tic Tac Toe game in [insert programming language here]. This project allows two players to take turns marking spaces on a 3x3 grid until one player wins or the game ends in a draw.
+A simple implementation of the classic Tic Tac Toe game in React. This project allows two players to take turns marking spaces on a 3x3 grid until one player wins or the game ends in a draw.
 
 ![Screenshot 2023-09-10 at 12 09 46](https://github.com/Mikael-Ronnberg/TicTacToe-React/assets/113439687/b39a53b7-691b-425f-b1d9-768560b4972b)
 ![Screenshot 2023-09-10 at 12 10 14](https://github.com/Mikael-Ronnberg/TicTacToe-React/assets/113439687/c3ec2003-b663-4951-b208-9bdb28b334f1)
